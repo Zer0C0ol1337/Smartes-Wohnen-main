@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produkte Auswahl</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Hintergrund halbtransparent machen */
+            z-index: 999; /* Stellen Sie sicher, dass das Overlay über allem anderen liegt */
+        }
+
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .product {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+            background-color: #f0f0f0;
+            cursor: pointer;
+        }
+
+        .product:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Button zum Öffnen des Overlay -->
+    <button onclick="openProductSelection()">Produkt hinzufügen</button>
+    
+    <!-- Overlay -->
+    <div id="overlay" class="overlay">
+        <!-- Produkt-Auswahlmenü -->
+        <div class="container">
+            <h1>Produkte Auswahl</h1>
+            <div class="product" onclick="addProduct('Milch')">Milch</div>
+            <div class="product" onclick="addProduct('Cola')">Cola</div>
+            <div class="product" onclick="addProduct('Wasser')">Wasser</div>
+            <div class="product" onclick="addProduct('Joghurt')">Joghurt</div>
+            <!-- Weitere Produkte hinzufügen... -->
+
+            <!-- Button zum Schließen des Overlay -->
+            <button onclick="closeProductSelection()">Schließen</button>
+        </div>
+    </div>
+
+    <script>
+        function openProductSelection() {
+            var overlay = document.getElementById('overlay');
+            overlay.style.display = 'block';
+        }
+
+        function closeProductSelection() {
+            var overlay = document.getElementById('overlay');
+            overlay.style.display = 'none';
+        }
+
+        function addProduct(productName) {
+            alert(productName + " wurde zum Kühlschrank hinzugefügt!");
+            closeProductSelection(); // Schließe das Overlay nach dem Hinzufügen des Produkts
+        }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produkte Auswahl</title>
+    <style>
+        /* Overlay-Stile */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Hintergrund halbtransparent machen */
+            z-index: 999; /* Stellen Sie sicher, dass das Overlay über allem anderen liegt */
+        }
+
+        /* Container-Stile */
+        .container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000; /* Stellen Sie sicher, dass das Popup über dem Overlay liegt */
+        }
+
+        /* Produkt-Stile */
+        .product {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+            background-color: #f0f0f0;
+            cursor: pointer;
+        }
+
+        .product:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Button zum Öffnen des Popups -->
+    <button onclick="openProductSelection()">Produkt hinzufügen</button>
+
+    <!-- Overlay -->
+    <div id="overlay" class="overlay"></div>
+
+    <!-- Popup-Container -->
+    <div id="popup" class="container">
+        <h1>Produkte Auswahl</h1>
+        <div class="product" onclick="addProduct('Milch')">Milch</div>
+        <div class="product" onclick="addProduct('Cola')">Cola</div>
+        <div class="product" onclick="addProduct('Wasser')">Wasser</div>
+        <div class="product" onclick="addProduct('Joghurt')">Joghurt</div>
+        <!-- Weitere Produkte hinzufügen... -->
+    </div>
+
+    <script>
+        function openProductSelection() {
+            var overlay = document.getElementById('overlay');
+            var popup = document.getElementById('popup');
+            overlay.style.display = 'block';
+            popup.style.display = 'block';
+        }
+
+        function closeProductSelection() {
+            var overlay = document.getElementById('overlay');
+            var popup = document.getElementById('popup');
+            overlay.style.display = 'none';
+            popup.style.display = 'none';
+        }
+
+        function addProduct(productName) {
+            alert(productName + " wurde zum Kühlschrank hinzugefügt!");
+            closeProductSelection(); // Schließe das Popup nach dem Hinzufügen des Produkts
+        }
+    </script>
+</body>
+</html>
