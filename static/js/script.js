@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     async function updateTemperature() {
         try {
-            const response = await fetch('http://192.168.178.22:8000/get_temperature');
+            const response = await fetch('http://localhost:8000/get_temperature');
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             } else {
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
 const products = [
     {name: 'Milch', icon: '/icons/milk.png'},
     {name: 'Eier', icon: '/icons/egg.png'},
-    {name: 'Cola', icon: '/icons/cola.png'}, // Korrigiert: 'Cola.png' zu 'cola.png'
+    {name: 'Cola', icon: '/icons/cola.png'}, 
     {name: 'Jogurt', icon: '/icons/yogurt.png'},
 ];
 
@@ -138,7 +138,7 @@ document.getElementById('add-to-cart-btn').addEventListener('click', async funct
             quantity: quantityInput.value,
         };
         try {
-            const response = await fetch('http://192.168.178.22:8000/add_product', {
+            const response = await fetch('http://localhost:8000/add_product', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

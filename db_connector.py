@@ -3,10 +3,10 @@ import mysql.connector
 # Verbindung herstellen
 try:
     connection = mysql.connector.connect(
-        host="localhost",
-        user="dave",
-        password="topstar14",
-        database="smart_fridge"
+        host="xxx",
+        user="xxx",
+        password="xxxx",
+        database="xxxx"
     )
     if connection.is_connected():
         print("Verbindung erfolgreich hergestellt.")

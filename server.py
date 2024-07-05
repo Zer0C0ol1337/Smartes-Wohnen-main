@@ -42,10 +42,10 @@ def get_temperature():
         return {'error': 'Failed to retrieve temperature'}
 
 # Meine SQL Login Daten
-MYSQL_HOST = 'localhost'
-MYSQL_USER = 'dave'
-MYSQL_PASSWORD = 'topstar14'
-MYSQL_DATABASE = 'smart_fridge'
+MYSQL_HOST = 'xxx'
+MYSQL_USER = 'xxx'
+MYSQL_PASSWORD = 'xxx'
+MYSQL_DATABASE = 'xxx'
 
 # MYSQL Verbindung herstellen wenn möglich
 def get_mysql_connection():
@@ -108,7 +108,7 @@ async def add_product(product: Product):
 
 # Funktion um zu prüfen ob die Zutaten für ein Rezept vorhanden sind
 # Aktuell nur für Spaghetti mit Tomatensoße
-
+# Zutaten für Rezept prüfen API
 @app.get("/checkIngredients/{recipe}")
 async def check_ingredients(recipe: str):
     cnx = get_mysql_connection()
@@ -137,6 +137,7 @@ async def check_ingredients(recipe: str):
     else:
         return {"status": "grün"}
 
+#Produkte anzeigen API
 @app.get("/get_products")
 async def get_products():
     cnx = get_mysql_connection()
@@ -152,7 +153,7 @@ async def get_products():
 
     return {"products": products}
 
-
+#Produkte entfernen API
 @app.delete("/delete_product/{product_name}")
 async def delete_product(product_name: str):
     cnx = get_mysql_connection()
@@ -172,4 +173,4 @@ async def delete_product(product_name: str):
 # Webserver starten
 if __name__ == '__main__':
     import uvicorn
-    uvicorn.run(app, host="192.168.178.22", port=8000)
+    uvicorn.run(app, host="localhost", port=8000)
